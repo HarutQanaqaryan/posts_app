@@ -7,6 +7,7 @@ import { SearchPost } from "../components/searchInput";
 import { Error } from "../components/error";
 import { NotFound } from "../components/notFound";
 import "../assets/styles/posts.css";
+import { NewPost } from "../components/newPost";
 
 export const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -16,6 +17,13 @@ export const Posts = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage] = useState(10);
   const [searchValue, setSearchValue] = useState("");
+  const [isOpenedModal, setIsOpenedModal] = useState(false);
+
+  const lastPostIndex = currentPage * postPerPage;
+  const firstPostIndex = lastPostIndex - postPerPage;
+  const currentPost = posts.slice(firstPostIndex, lastPostIndex);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   useEffect(() => {
     setLoading(true);
@@ -33,12 +41,6 @@ export const Posts = () => {
         });
   }, []);
 
-  const lastPostIndex = currentPage * postPerPage;
-  const firstPostIndex = lastPostIndex - postPerPage;
-  const currentPost = posts.slice(firstPostIndex, lastPostIndex);
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
   const handleSearchValue = useCallback(({ target: { value } }) => {
     setSearchValue(value);
   }, []);
@@ -51,17 +53,19 @@ export const Posts = () => {
     ) || setNotFound(true);
   }, [searchValue]);
 
-  const removePost = (e) => {
+  const removePost = useCallback((e) => {
     setPosts((items) =>
-      items.filter(
-        (el) => JSON.stringify(el.id) !== e.target.id
-      )
+      items.filter((el) => JSON.stringify(el.id) !== e.target.id)
     );
-  };
+  }, []);
 
   const savePostId = (e) => {
-    localStorage.setItem("Post Id", e.target.id)
-  }
+    localStorage.setItem("Post Id", e.target.id);
+  };
+
+  const openNewPostForm = () => {
+    isOpenedModal ? setIsOpenedModal(false) : setIsOpenedModal(true);
+  };
 
   useEffect(() => {
     if (searchValue === "") {
@@ -69,7 +73,6 @@ export const Posts = () => {
       setNotFound(false);
     }
   }, [searchValue]);
-
 
   return (
     <div className="posts">
@@ -82,6 +85,12 @@ export const Posts = () => {
         onChange={(e) => handleSearchValue(e)}
         onClick={filterPosts}
       />
+      <button
+        className={`${isOpenedModal ? "modal" : "posts-type-new-post"}`}
+        onClick={openNewPostForm}
+      >
+        {`${isOpenedModal ? "Закрыть" : "Написать новый Пост"}`}
+      </button>
       {currentPost.map(({ title, body, id }) => (
         <PostCard
           title={title}
@@ -100,6 +109,7 @@ export const Posts = () => {
       />
       {error && <Error />}
       {notFound && <NotFound />}
+      {isOpenedModal && <NewPost />}
     </div>
   );
 };

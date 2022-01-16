@@ -1,4 +1,4 @@
-import "../assets/styles/posts.css"
+import "../assets/styles/posts.css";
 
 export const Error = () => {
   return (

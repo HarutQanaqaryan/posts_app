@@ -23,12 +23,10 @@ export const PostComment = () => {
       .catch((e) => (e ? setError(true) : setError(false)));
   }, [postId]);
 
-  console.log(comments);
 
   return (
     <div className="posts">
       <h1 className="posts-header">Коментарии</h1>
-
       {comments.map(({ name, email, body, id }) => (
         <CommentsCard name={name} email={email} body={body} key={id}/>
       ))}

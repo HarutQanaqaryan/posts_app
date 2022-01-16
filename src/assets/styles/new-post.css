@@ -1,0 +1,64 @@
+.new-post-form {
+  min-width: 400px;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  position: fixed;
+  left: 35%;
+  top: 30%;
+  z-index: 99999999;
+  font-size: 20px;
+  background-color: rgba(17, 238, 46, 0.938);
+  border-radius: 10px;
+}
+
+.new-post-form_item{
+    display: flex;
+    flex-direction: column;
+}
+
+.new-post-form_label {
+    margin: 10px;
+    color: rgb(182, 135, 15);
+}
+
+.new-post-form_input {
+    width: 250px;
+    height: 30px;
+    font-size: 20px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgb(134, 104, 26);
+}
+.new-post-form_textarea {
+   width: 250px;
+   height: 40px;
+   background: none;
+   border: 1px solid  rgb(134, 104, 26);
+   border-radius: 10px;
+}
+.new-post-form_input:focus, .new-post-form_textarea:focus {
+    box-shadow: 0 0 10px rgba(12, 75, 4, 0.589);
+    outline: none;
+}
+.new-post-form_btn {
+    width: 250px;
+    height: 30px;
+    margin: 20px;
+    border: none;
+    background-color: rgb(252, 196, 54);
+    color: rgba(12, 75, 4, 0.589);
+    box-shadow: 0 0 10px rgba(12, 75, 4, 0.589);
+    border-radius: 4px;
+    font-family: "Jura", sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+}
+.new-post-form_btn:hover {
+    background-color: rgba(12, 75, 4, 0.589);
+    color: rgb(252, 196, 54);
+    transition: .5s;
+}
