@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { PostCard } from "../components/postCard";
 import { getData } from "../helpers/getData";
-import "../assets/styles/posts.css";
 import loadingIcon from "../assets/loading.svg";
 import { Pagination } from "../components/pagaination";
 import { SearchPost } from "../components/searchInput";
 import { Error } from "../components/error";
 import { NotFound } from "../components/notFound";
+import "../assets/styles/posts.css";
 
 export const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -59,13 +59,18 @@ export const Posts = () => {
     );
   };
 
-  
+  const savePostId = (e) => {
+    localStorage.setItem("Post Id", e.target.id)
+  }
+
   useEffect(() => {
     if (searchValue === "") {
       setPosts(JSON.parse(localStorage.getItem("Posts")));
       setNotFound(false);
     }
   }, [searchValue]);
+
+
   return (
     <div className="posts">
       <h1 className="posts-header">Посты</h1>
@@ -77,14 +82,15 @@ export const Posts = () => {
         onChange={(e) => handleSearchValue(e)}
         onClick={filterPosts}
       />
-      {currentPost.map(({ title, body, id, clickRemovePost }) => (
+      {currentPost.map(({ title, body, id }) => (
         <PostCard
           title={title}
           body={body}
-          userId={id}
+          postId={id}
           id={id}
           key={id}
           clickRemovePost={(e) => removePost(e)}
+          clickSeeComments={(e) => savePostId(e)}
         />
       ))}
       <Pagination
