@@ -1,0 +1,36 @@
+.welcome-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30%;
+    width: fit-content;
+    height: 150px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgb(252, 196, 54);
+    background-color: rgba(249, 252, 54, 0.658);
+    border-radius: 10px;
+    color: rgb(43, 151, 16);
+}
+.welcome-page_start {
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(12, 75, 4, 0.589);
+    text-decoration: none;
+    color: white;
+    background-color: rgb(53, 196, 18);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+.welcome-page_start:hover {
+    box-shadow: 0 0 30px rgba(12, 75, 4, 0.589);
+    transition: .5s;
+}
+.welcome-page_start:not(:hover){
+    box-shadow: 0 0 10px rgba(12, 75, 4, 0.589);
+    transition: .5s;
+}

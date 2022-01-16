@@ -1,0 +1,30 @@
+.pagination {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 900px;
+}
+.pagination-block {
+    width: 500px;
+    display: flex;
+    justify-content:space-between;
+}
+.pagination-item {
+    list-style-type: none;
+    width: 40px;
+    background-color: rgb(249, 59, 253);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 4px;
+}
+.active {
+    background-color: rgb(253, 59, 101);
+}
+.pagination-item:hover {
+    box-shadow: 0 0 30px rgb(249, 59, 253);
+    cursor: pointer;
+}
+.pagination-item_link {
+    text-decoration: none;
+    font-size: 20px;
+}

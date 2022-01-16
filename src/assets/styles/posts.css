@@ -1,0 +1,57 @@
+.posts {
+  width: 900px;
+  text-align: center;
+}
+.posts-header {
+  color: rgb(53, 196, 18);
+  font-size: 60px;
+}
+.search-post {
+  margin: auto;
+  width: 400px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+.search-post_input {
+  width: 400px;
+  height: 100%;
+  font-size: 20px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.61);
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  font-family: "Jura", sans-serif;
+}
+.search-post_input:focus{
+    box-shadow: 0 0 30px rgb(249, 59, 253);
+    border: none;
+    outline: none;
+}
+.search-post_btn {
+  width: 80px;
+  height: 100%;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  background-color: rgba(250, 59, 253, 0.596);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  font-family: "Jura", sans-serif;
+  cursor: pointer;
+}
+.search-post_btn:hover{
+    box-shadow: 0 0 30px rgb(248, 1, 252);
+    background-color: rgb(248, 1, 252);
+    transition: .5s;
+}
+.error, .not-found {
+   margin: 100px;
+   background-color: rgba(249, 252, 54, 0.658);
+   color: rgb(29, 114, 7);
+  font-size: 40px;
+  padding: 30px;
+  border-radius: 10px;
+}
