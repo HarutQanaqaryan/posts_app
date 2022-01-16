@@ -50,9 +50,17 @@ export const Posts = () => {
       items.filter(
         (el) => el.title.includes(searchValue) || el.body.includes(searchValue)
       )
-    ) || setNotFound(true);
+    );
   }, [searchValue]);
 
+  useEffect(() => {
+    if (searchValue !== "" && posts.length === 0) {
+      setNotFound(true);
+    } else {
+      setNotFound(false);
+    }
+  }, [posts.length, searchValue]);
+  
   const removePost = useCallback((e) => {
     setPosts((items) =>
       items.filter((el) => JSON.stringify(el.id) !== e.target.id)
