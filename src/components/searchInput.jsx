@@ -1,3 +1,4 @@
+import React from "react";
 import "../assets/styles/posts.css";
 
 export const SearchPost = ({ searchValue, onChange, onClick }) => {

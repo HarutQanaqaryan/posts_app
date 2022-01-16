@@ -1,3 +1,4 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "../assets/styles/post-card.css";
 import removeIcon from "../assets/remove.svg";

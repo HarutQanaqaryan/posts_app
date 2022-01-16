@@ -1,3 +1,4 @@
+import React from "react";
 import "../assets/styles/new-post.css";
 
 export const NewPost = () => {

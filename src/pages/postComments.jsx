@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { getPostComments } from "../helpers/getPostComment";
 import loadingIcon from "../assets/loading.svg";

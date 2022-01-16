@@ -1,3 +1,4 @@
+import React from "react";
 import "../assets/styles/post-card.css";
 
 export const CommentsCard = ({ name, email, body }) => {
