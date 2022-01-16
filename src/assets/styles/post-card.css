@@ -43,3 +43,11 @@
   align-items: center;
   font-size: 20px;
 }
+.remove-icon {
+  width: 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+.remove-icon:hover {
+  box-shadow: 0 0 10px rgb(249, 59, 253);
+}

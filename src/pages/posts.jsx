@@ -51,6 +51,15 @@ export const Posts = () => {
     ) || setNotFound(true);
   }, [searchValue]);
 
+  const removePost = (e) => {
+    setPosts((items) =>
+      items.filter(
+        (el) => JSON.stringify(el.id) !== e.target.id
+      )
+    );
+  };
+
+  
   useEffect(() => {
     if (searchValue === "") {
       setPosts(JSON.parse(localStorage.getItem("Posts")));
@@ -68,8 +77,15 @@ export const Posts = () => {
         onChange={(e) => handleSearchValue(e)}
         onClick={filterPosts}
       />
-      {currentPost.map(({ title, body, id, userId }) => (
-        <PostCard title={title} body={body} userId={userId} id={id} key={id} />
+      {currentPost.map(({ title, body, id, clickRemovePost }) => (
+        <PostCard
+          title={title}
+          body={body}
+          userId={id}
+          id={id}
+          key={id}
+          clickRemovePost={(e) => removePost(e)}
+        />
       ))}
       <Pagination
         postsPerPage={postPerPage}
